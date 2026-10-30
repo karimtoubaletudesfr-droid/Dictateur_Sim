@@ -1,0 +1,12 @@
+profession,min_age,max_age,weight
+Student,0,25,30
+Farmer,18,70,15
+Baker,18,70,8
+Teacher,23,70,10
+Researcher,25,70,5
+Engineer,23,70,10
+Doctor,26,70,7
+Worker,18,70,25
+Soldier,18,45,10
+Unemployed,18,70,10
+Retired,65,120,20

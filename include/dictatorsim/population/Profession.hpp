@@ -3,6 +3,7 @@ namespace ds{
     enum class Profession {
         Unemployed,
         Student,
+        Retired,
         Farmer,
         Baker,
         Teacher,
@@ -10,6 +11,6 @@ namespace ds{
         Engineer,
         Doctor,
         Worker,
-        Solder,
+        Soldier,
     };
 }
