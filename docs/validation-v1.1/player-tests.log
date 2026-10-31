@@ -1,0 +1,5 @@
+./build/tests/PlayerSessionTest
+./build/tests/PlayerDecisionImpactTest
+./build/tests/PlayerActionsTest
+./build/tests/EventSeverityTest
+./build/tests/PlayerCoupTest

@@ -1,0 +1,33 @@
+RUN build/tests/AccountTest
+RUN build/tests/ArchiveTest
+RUN build/tests/CSVProfessionProviderTest
+All CSVProfessionProvider tests passed!
+RUN build/tests/CitizenFactoryTest
+All CitizenFactory tests passed!
+RUN build/tests/CitizenTest
+All Citizen tests passed!
+RUN build/tests/CompanyTest
+RUN build/tests/ConfigurationTest
+RUN build/tests/ConsumptionSystemTest
+RUN build/tests/CrimeSystemTest
+RUN build/tests/DecisionManagerTest
+RUN build/tests/DisasterSystemTest
+RUN build/tests/EconomyEngineTest
+RUN build/tests/ExceptionalPaymentTest
+RUN build/tests/HappinessSystemTest
+RUN build/tests/IdGeneratorTest
+All IdGenerator tests passed!
+RUN build/tests/IncomeSystemTest
+RUN build/tests/LedgerTest
+Ledger: 100000 reproducible transfers, conservation and refusals passed
+RUN build/tests/MilitaryEngineTest
+RUN build/tests/PolicyExecutorTest
+RUN build/tests/PopulationManagerTest
+ All PopulationManager tests passed!
+RUN build/tests/ProtestSystemTest
+RUN build/tests/RandomEngineTest
+All RandomEngine tests passed!
+RUN build/tests/RebellionSystemTest
+RUN build/tests/SimulationClockTest
+RUN build/tests/SimulationIntegrationTest
+RUN build/tests/TaxationSystemTest

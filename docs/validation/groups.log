@@ -1,0 +1,19 @@
+./build/tests/ArchiveTest
+./build/tests/ExceptionalPaymentTest
+./build/tests/LedgerTest
+Ledger: 100000 reproducible transfers, conservation and refusals passed
+./build/tests/AccountTest
+./build/tests/CompanyTest
+./build/tests/IncomeSystemTest
+./build/tests/ConsumptionSystemTest
+./build/tests/TaxationSystemTest
+./build/tests/EconomyEngineTest
+./build/tests/HappinessSystemTest
+./build/tests/CrimeSystemTest
+./build/tests/ProtestSystemTest
+./build/tests/RebellionSystemTest
+./build/tests/PolicyExecutorTest
+./build/tests/MilitaryEngineTest
+./build/tests/DisasterSystemTest
+./build/tests/SimulationClockTest
+./build/tests/SimulationIntegrationTest

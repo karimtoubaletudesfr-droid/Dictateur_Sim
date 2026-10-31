@@ -1,0 +1,13 @@
+# Politique et décisions
+
+Government possède Policy, PoliticalState et Dictator. La personnalité contient huit traits [0,1] validés au constructeur; elle prépare le contrôleur, sans modifier arbitrairement toutes les statistiques.
+
+ActionValidator vérifie type connu, valeurs positives, régime encore capable de gouverner, fiscalité dans [0,10000], budget disponible, bénéficiaires et ressources nécessaires. PolicyExecutor valide à nouveau avant effet. Les taxes montent/baissent en points de base. L'urgence réduit la mobilisation et affecte la confiance. L'augmentation du budget militaire fixe une limite mensuelle, pas une création d'argent; les paiements effectifs restent vérifiés à chaque solde.
+
+Subvention alimentaire et aide aux sinistrés sont des transferts égaux à toute la population dans cette V1, reliquats distribués exactement. Le ciblage des bénéficiaires et l'affectation stricte à la nourriture sont simplifiés. Construire un hôpital exige une unité de construction disponible et un paiement égal au devis courant, la consomme et accroît la productivité santé de 0,1. Les contrats santé/éducation/police vont à des prestataires existants. Ils augmentent respectivement productivité santé de 0,1, productivités de 0,01 et détection de 0,05; leur calibration par volume budgétaire reste à développer. L'investissement industriel restaure jusqu'à 0,1 de capacité, plafonnée à 1. Ces interventions sont PARTIAL, pas un modèle d'investissement empirique.
+
+Légitimité = confiance moyenne. Stabilité = 0,45×légitimité +0,30×loyauté militaire +0,25×(100−pourcentage manifestants) −25 si rébellion, bornée [0,100]. Cette variable descriptive ne produit aucun revenu. La corruption est un tirage quotidien : transfert plafonné du Trésor vers un citoyen; aucun débit sans crédit.
+
+Les statuts possibles sont Governing, Transition, Collapsed, Crisis; les coups peuvent aussi incrémenter le nombre de changements de dirigeant. Un effondrement interdit les nouvelles politiques mais la simulation civile continue. Les engagements économiques existants continuent également; administrations de transition et réorganisation de l'armée ne sont pas modélisées.
+
+`Simulation::act` permet des décisions explicites. `HumanDecisionProvider::submit` fournit une file pour une UI. `HybridDecisionProvider` retient une proposition jusqu'à `approve`; rejet n'exécute rien. `AIDecisionProvider` est un contrat abstrait, aucun LLM n'est connecté. Les résultats sont structurés et repassent toujours par validation. Le rapport exact peut être remplacé plus tard par une observation imparfaite sans exposer World.

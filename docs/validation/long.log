@@ -1,0 +1,51 @@
+DICTATORSIM V1
+DAY: 3600 YEAR: 11
+POPULATION: 200
+
+ECONOMY
+Money supply: 10000000.00
+Treasury: 43591.10
+Unemployment (%): 12.844
+Production (units/day): 0
+Price index: 4.29818
+Economic prosperity: 43.578
+
+SOCIETY
+Happiness: 11.3
+Anger: 79.6983
+Health: 0
+Crime incidents: 487
+Active protesters: 121
+
+POLITICS
+Stability: 24.875
+Military loyalty: 50
+Regime status (0 governing, 1 transition, 2 collapsed, 3 crisis): 2
+
+EVENTS (last 20)
+Day 3600: Employer could not pay monthly wage (subject 31)
+Day 3600: Employer could not pay monthly wage (subject 40)
+Day 3600: Employer could not pay monthly wage (subject 56)
+Day 3600: Employer could not pay monthly wage (subject 74)
+Day 3600: Employer could not pay monthly wage (subject 79)
+Day 3600: Employer could not pay monthly wage (subject 81)
+Day 3600: Employer could not pay monthly wage (subject 85)
+Day 3600: Employer could not pay monthly wage (subject 94)
+Day 3600: Employer could not pay monthly wage (subject 105)
+Day 3600: Employer could not pay monthly wage (subject 117)
+Day 3600: Employer could not pay monthly wage (subject 120)
+Day 3600: Employer could not pay monthly wage (subject 127)
+Day 3600: Employer could not pay monthly wage (subject 143)
+Day 3600: Employer could not pay monthly wage (subject 160)
+Day 3600: Employer could not pay monthly wage (subject 176)
+Day 3600: Inventory feedback changed unit price from 634 to 646 cents (subject 0)
+Day 3600: Inventory feedback changed unit price from 1074 to 1095 cents (subject 1)
+Day 3600: Inventory feedback changed unit price from 2176 to 2219 cents (subject 2)
+Day 3600: Inventory feedback changed unit price from 1283 to 1308 cents (subject 3)
+Day 3600: Inventory feedback changed unit price from 1718 to 1752 cents (subject 5)
+
+ACCOUNTING
+Initial money: 10000000.00
+Current money: 10000000.00
+Difference: 0.00
+STATUS: CONSISTENT

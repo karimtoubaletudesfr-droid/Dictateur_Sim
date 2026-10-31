@@ -1,0 +1,51 @@
+DICTATORSIM V1
+DAY: 3650 YEAR: 11
+POPULATION: 10000
+
+ECONOMY
+Money supply: 10000000.00
+Treasury: 883.80
+Unemployment (%): 10.7352
+Production (units/day): 0.0664546
+Price index: 2.83818
+Economic prosperity: 44.6324
+
+SOCIETY
+Happiness: 11.1228
+Anger: 96.9676
+Health: 0.0051
+Crime incidents: 18592
+Active protesters: 6845
+
+POLITICS
+Stability: 7.9129
+Military loyalty: 0.0846687
+Regime status (0 governing, 1 transition, 2 collapsed, 3 crisis): 2
+
+EVENTS (last 20)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 4265)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 4327)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 4853)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 4935)
+Day 3649: Theft attempt failed (subject 5756)
+Day 3649: Theft attempt failed (subject 7128)
+Day 3649: Theft attempt failed (subject 8268)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 8286)
+Day 3649: Theft succeeded; monetary transfer recorded (subject 9924)
+Day 3650: Theft attempt failed (subject 635)
+Day 3650: Theft attempt failed (subject 1022)
+Day 3650: Theft succeeded; monetary transfer recorded (subject 1622)
+Day 3650: Theft attempt failed (subject 1821)
+Day 3650: Theft succeeded; monetary transfer recorded (subject 3886)
+Day 3650: Theft attempt failed (subject 5261)
+Day 3650: Theft attempt failed (subject 5507)
+Day 3650: Theft succeeded; monetary transfer recorded (subject 6111)
+Day 3650: Theft attempt failed (subject 6504)
+Day 3650: Theft attempt failed (subject 7039)
+Day 3650: Theft attempt failed (subject 9036)
+
+ACCOUNTING
+Initial money: 10000000.00
+Current money: 10000000.00
+Difference: 0.00
+STATUS: CONSISTENT

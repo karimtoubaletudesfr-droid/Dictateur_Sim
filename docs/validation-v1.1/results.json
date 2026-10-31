@@ -1,0 +1,62 @@
+[
+  {
+    "name": "clean",
+    "command": "make clean",
+    "code": 0,
+    "seconds": 0.06
+  },
+  {
+    "name": "core-build",
+    "command": "make -j4",
+    "code": 0,
+    "seconds": 7.76
+  },
+  {
+    "name": "tests",
+    "command": "make -j4 test",
+    "code": 0,
+    "seconds": 7.55
+  },
+  {
+    "name": "sfml-build",
+    "command": "make -j4 sfml",
+    "code": 0,
+    "seconds": 3.36
+  },
+  {
+    "name": "cli",
+    "command": "make run",
+    "code": 0,
+    "seconds": 0.14
+  },
+  {
+    "name": "player-tests",
+    "command": "make test-player",
+    "code": 0,
+    "seconds": 0.07
+  },
+  {
+    "name": "smoke-720",
+    "command": "./build/dictatorsim-sfml --smoke 120 --width 1280 --height 720",
+    "code": 0,
+    "seconds": 2.57
+  },
+  {
+    "name": "smoke-1080",
+    "command": "./build/dictatorsim-sfml --smoke 120 --width 1920 --height 1080",
+    "code": 0,
+    "seconds": 2.69
+  },
+  {
+    "name": "benchmark-1000",
+    "command": "./build/dictatorsim-sfml --benchmark 240 --population 1000 --width 1920 --height 1080",
+    "code": 0,
+    "seconds": 4.74
+  },
+  {
+    "name": "benchmark-10000",
+    "command": "./build/dictatorsim-sfml --benchmark 240 --population 10000 --width 1280 --height 720",
+    "code": 0,
+    "seconds": 4.4
+  }
+]

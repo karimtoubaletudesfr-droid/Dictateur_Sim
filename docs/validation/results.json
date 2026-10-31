@@ -1,0 +1,50 @@
+[
+  {
+    "name": "clean",
+    "command": "make clean",
+    "code": 0,
+    "seconds": 0.09
+  },
+  {
+    "name": "build",
+    "command": "make -j4",
+    "code": 0,
+    "seconds": 7.79
+  },
+  {
+    "name": "test",
+    "command": "make test",
+    "code": 0,
+    "seconds": 19.44
+  },
+  {
+    "name": "groups",
+    "command": "make test-economy test-society test-politics test-military test-disasters test-simulation",
+    "code": 0,
+    "seconds": 0.12
+  },
+  {
+    "name": "run",
+    "command": "make run",
+    "code": 0,
+    "seconds": 0.13
+  },
+  {
+    "name": "long",
+    "command": "./build/dictatorsim --population 200 --days 3600 --seed 42 --ledger-log build/long-transactions.csv",
+    "code": 0,
+    "seconds": 0.25
+  },
+  {
+    "name": "large",
+    "command": "./build/dictatorsim --population 10000 --days 365 --seed 42 --ledger-log build/large-transactions.csv",
+    "code": 0,
+    "seconds": 5.35
+  },
+  {
+    "name": "empty",
+    "command": "./build/dictatorsim --population 0 --days 720 --seed 42",
+    "code": 0,
+    "seconds": 0.0
+  }
+]

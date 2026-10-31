@@ -14,6 +14,7 @@ public:
     explicit CSVProfessionProvider(const std::string& filePath);
 
     std::vector<ProfessionConfig> load() const override;
+    std::vector<ProfessionConfig> loadWithEconomics(const std::string& economicPath) const;
 };
 
 }

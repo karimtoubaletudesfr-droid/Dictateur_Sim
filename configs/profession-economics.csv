@@ -1,0 +1,12 @@
+profession,salary,sector,productivity,physical_load,mental_load,hours,skill
+Student,0,5,0,0,0.2,0,0
+Farmer,30000,0,1.2,1.2,0.5,8,0.3
+Baker,45000,0,1.1,1.3,0.6,8,0.5
+Teacher,60000,5,1,0.5,1.2,8,0.7
+Researcher,90000,5,1.2,0.3,1.5,8,0.9
+Engineer,75000,3,1.3,0.7,1.1,8,0.8
+Doctor,90000,4,1,0.6,1.4,8,0.9
+Worker,45000,2,1,1.2,0.6,8,0.3
+Soldier,60000,5,1,1.3,1.2,8,0.5
+Unemployed,0,5,0,0,0.2,0,0
+Retired,0,5,0,0,0,0,0

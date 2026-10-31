@@ -1,5 +1,6 @@
 #include "dictatorsim/population/CitizenFactory.hpp"
 #include <stdexcept>
+#include <cmath>
 #include <utility>
 namespace ds{
     CitizenFactory::CitizenFactory(
@@ -9,6 +10,14 @@ namespace ds{
     )
         :idGenerator(idGenerator),randomEngine(randomEngine),professions(std::move(professions))
     {
+        for(unsigned age=0;age<=90;++age){
+            double total=0;
+            for(const auto& p:this->professions){
+                if(!std::isfinite(p.weight)||p.weight<0||p.minAge>p.maxAge)throw std::invalid_argument("invalid profession configuration");
+                if(age>=p.minAge && age<=p.maxAge)total+=p.weight;
+            }
+            if(!(total>0) || !std::isfinite(total))throw std::invalid_argument("profession coverage missing for generated age");
+        }
         if(this->professions.empty()){
             throw std::invalid_argument(
                 "Profession configurations cannot be empty"

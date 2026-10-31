@@ -1,17 +1,29 @@
 #pragma once
 
 #include <cstdint>
+#include "dictatorsim/economy/Money.hpp"
 #include "Profession.hpp"
 namespace ds {
+class Ledger;
 
 struct Citizen {
     // Identité
+private:
     std::uint32_t id;
+    const Ledger* ledger_ = nullptr;
+public:
     std::uint8_t age;
     Profession profession;
     // Situation économique
     double income;
-    double savings;
+    void bindAccount(const Ledger& ledger, AccountId id);
+    AccountId account = 0;
+    int employer = -1;
+    Money earned = 0;
+    Money pendingCost = 0;
+    int pendingService = -1;
+    float housing = 100, stress = 0, riskTolerance = 0.5f;
+    bool protesting = false;
     // Besoins
     float foodSatisfaction;
     float health;
@@ -42,7 +54,7 @@ struct Citizen {
 
 
     float getHappiness()const;
-    float getGovernmentTrust();
+    float getGovernmentTrust() const;
     float getAnger()const;
 
 

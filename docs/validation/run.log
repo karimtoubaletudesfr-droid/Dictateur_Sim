@@ -1,0 +1,52 @@
+./build/dictatorsim
+DICTATORSIM V1
+DAY: 365 YEAR: 2
+POPULATION: 1000
+
+ECONOMY
+Money supply: 10000000.00
+Treasury: 1336623.41
+Unemployment (%): 9.48767
+Production (units/day): 4361.08
+Price index: 0.826061
+Economic prosperity: 95.2562
+
+SOCIETY
+Happiness: 93.8409
+Anger: 8.85471
+Health: 98.2173
+Crime incidents: 91
+Active protesters: 0
+
+POLITICS
+Stability: 98.4459
+Military loyalty: 94.8196
+Regime status (0 governing, 1 transition, 2 collapsed, 3 crisis): 0
+
+EVENTS (last 20)
+Day 359: Car breakdown; repair remains pending until paid (subject 359)
+Day 359: Illness; medical treatment requested (subject 535)
+Day 359: Pending service paid and delivered (subject 535)
+Day 359: Theft succeeded; monetary transfer recorded (subject 44)
+Day 360: Illness; medical treatment requested (subject 650)
+Day 360: Pending service paid and delivered (subject 650)
+Day 360: Inventory feedback changed unit price from 127 to 125 cents (subject 0)
+Day 360: Inventory feedback changed unit price from 245 to 241 cents (subject 1)
+Day 360: Inventory feedback changed unit price from 269 to 274 cents (subject 2)
+Day 360: Inventory feedback changed unit price from 245 to 241 cents (subject 3)
+Day 360: Inventory feedback changed unit price from 245 to 241 cents (subject 4)
+Day 360: Inventory feedback changed unit price from 245 to 241 cents (subject 5)
+Day 360: Theft attempt failed (subject 983)
+Day 363: Car breakdown; repair remains pending until paid (subject 806)
+Day 364: Illness; medical treatment requested (subject 11)
+Day 364: Pending service paid and delivered (subject 11)
+Day 364: Car breakdown; repair remains pending until paid (subject 155)
+Day 364: Pending service paid and delivered (subject 155)
+Day 365: Illness; medical treatment requested (subject 184)
+Day 365: Pending service paid and delivered (subject 184)
+
+ACCOUNTING
+Initial money: 10000000.00
+Current money: 10000000.00
+Difference: 0.00
+STATUS: CONSISTENT

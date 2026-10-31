@@ -31,6 +31,9 @@ namespace ds{
         if(weights.empty()){
             throw std::invalid_argument("Weights vector is empty");
         }
+        double total=0;
+        for(double w:weights) {if(!std::isfinite(w) || w<0) throw std::invalid_argument("invalid weight");total+=w;}
+        if(!std::isfinite(total) || total<=0) throw std::invalid_argument("zero or overflowing weights");
         std::discrete_distribution<std::size_t> distribution(weights.begin(),weights.end());
         return distribution(engin);
     }

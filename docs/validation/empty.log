@@ -1,0 +1,37 @@
+DICTATORSIM V1
+DAY: 720 YEAR: 3
+POPULATION: 0
+
+ECONOMY
+Money supply: 10000000.00
+Treasury: 6000000.00
+Unemployment (%): 0
+Production (units/day): 0
+Price index: 1
+Economic prosperity: 0
+
+SOCIETY
+Happiness: 0
+Anger: 0
+Health: 0
+Crime incidents: 0
+Active protesters: 0
+
+POLITICS
+Stability: 25
+Military loyalty: 0
+Regime status (0 governing, 1 transition, 2 collapsed, 3 crisis): 0
+
+EVENTS (last 20)
+Day 29: Natural disaster type 2 damaged physical assets; severity 0.224443 (subject 1)
+Day 204: Natural disaster type 3 damaged physical assets; severity 0.596801 (subject 2)
+Day 318: Natural disaster type 0 damaged physical assets; severity 0.451861 (subject 2)
+Day 396: Natural disaster type 3 damaged physical assets; severity 0.148867 (subject 2)
+Day 540: Natural disaster type 1 damaged physical assets; severity 0.593687 (subject 0)
+Day 673: Natural disaster type 2 damaged physical assets; severity 0.486041 (subject 0)
+
+ACCOUNTING
+Initial money: 10000000.00
+Current money: 10000000.00
+Difference: 0.00
+STATUS: CONSISTENT

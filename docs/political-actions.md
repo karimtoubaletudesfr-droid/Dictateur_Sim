@@ -1,0 +1,36 @@
+# Catalogue auditable des décisions V1.1
+
+22 actions dans GOVERN, plus la réponse événementielle NoAction. Les montants affichés sont en unités; les moteurs utilisent des centimes. Pour toutes : un gouvernement effondré refuse les ordres; le mode joueur interdit aussi les ordres après remplacement du dirigeant. Les transferts passent par Ledger, jamais par un solde UI. Les allocations sont ajustables par pas de 1000 unités, plancher 100. Les variations fiscales restent fixées à cinq points et la baisse des allocations à un point dans l’interface.
+
+| Type / nom | Conditions | Coût | Effets immédiats | Effets différés / moteurs | Tests |
+|---|---|---|---|---|---|
+| `IncreaseTaxes` — Augmenter les impôts | Taux final ≤10000 bps | 0 | Taux +500 bps par clic | Prochain salaire : impôt plus élevé et consommation potentiellement réduite | PlayerActionsTest, PlayerDecisionImpactTest |
+| `DecreaseTaxes` — Diminuer les impôts | Taux courant ≥500 bps | 0 | Taux −500 bps | Impôts ultérieurs réduits, revenu disponible supérieur | PlayerActionsTest, PlayerDecisionImpactTest |
+| `SubsidizeFood` — Subvention alimentaire | Population non vide, fonds disponibles | Allocation choisie, défaut 10000 unités | Répartition exacte entre comptes citoyens | Achats alimentaires possibles; allocation non strictement fléchée | PlayerActionsTest |
+| `IncreaseHealthcareBudget` — Financer les hôpitaux | Fonds disponibles | Allocation, défaut 10000 | Paiement santé, stock += montant/coût soins, productivité += montant/prix ×0,001 | Traitements disponibles; amélioration effective si facture réglable | PlayerActionsTest, PlayerDecisionImpactTest |
+| `InvestInIndustry` — Investir dans l’industrie | Fonds disponibles | Allocation, défaut 10000 | Paiement industrie, capacité et productivité +montant/prix ×0,001 (capacité≤1) | Production physique accrue selon effectifs et santé | PlayerActionsTest |
+| `IncreaseMilitaryBudget` — Augmenter les dépenses militaires | Nouvelle limite >limite actuelle et ≤Trésor | 0 immédiat; hausse choisie de limite, défaut +10000 | Nouvelle appropriation mensuelle | Soldes financées dans cette limite; satisfaction puis loyauté | PlayerActionsTest, MilitaryEngineTest, PlayerCoupTest |
+| `DecreasePublicSpending` — Diminuer les dépenses publiques | Taux allocations ≥100 bps | 0 | Welfare −100 bps | Moins d’allocations mensuelles, plus de fonds retenus au Trésor | PlayerActionsTest |
+| `ProvideDisasterRelief` — Reconstruction après catastrophe | Population non vide, fonds disponibles | Allocation, défaut 10000 | Transferts citoyens; besoins de travaux pour logements abîmés | Paiement constructeur et restauration de logement lors de livraison | PlayerActionsTest |
+| `AllowProtest` — Autoriser une manifestation | Autorisation pas déjà accordée | 0 | Droit reconnu; confiance +2, colère −2 | Mobilisation influencée par confiance; aucun bonus direct de stabilité | PlayerActionsTest |
+| `NegotiateProtest` — Négocier | Manifestants présents | 0 | Confiance +3, colère −5; participation actuelle terminée | La mobilisation peut reprendre si les griefs persistent | PlayerActionsTest |
+| `DeclareEmergency` — Déclarer l’urgence | Gouvernement encore en place | 0 | Urgence active | Risque de participation réduit et confiance érodée quotidiennement | PlayerActionsTest |
+| `EndEmergency` — Lever l’urgence | Urgence active | 0 | Urgence désactivée | Fin des effets quotidiens de l’urgence | PlayerActionsTest |
+| `CensorMedia` — Censurer les médias fictifs | Pas déjà actif, fonds disponibles | Allocation, défaut 1000; minimum 100 | Paiement services, censure, réaction sév.5 | Érosion quotidienne de confiance et effets peur/radicalisation | PlayerActionsTest |
+| `BanOrganization` — Interdire Civic Assembly | Pas déjà interdit, fonds disponibles | Allocation, défaut 1000; minimum 100 | Paiement services, interdiction, réaction sév.5 | Confiance érodée; révélation possible si covert | PlayerActionsTest |
+| `ReleasePrisoners` — Libérer les prisonniers | Au moins un détenu | 0 | Libération, peur −5, confiance +5, colère −3 | Effets sociaux via confiance; pas de répétition sans nouveaux détenus | PlayerActionsTest |
+| `ArrestOpponent` — Emprisonner arbitrairement Mara Voss | Vivante et libre, fonds disponibles | Allocation, défaut 1000; minimum 100 | Paiement services; prisonnier +1; réaction sév.10 | Radicalisation ou révélation différée si covert | PlayerActionsTest |
+| `IncreasePoliceBudget` — Renforcer la sécurité | Fonds disponibles | Allocation, défaut 10000 | Paiement services; détection +0,05 plafonnée à1 | Tentatives/succès criminels et signalement modifiés | PlayerActionsTest |
+| `PoliticalAssassination` — Assassinat politique fictif | Mara vivante, fonds disponibles | Allocation, défaut 1000; minimum 100 | Mara éliminée, victime +1, réaction sév.25, paiement | Mécontentement, radicalisation, loyauté réduite; révélation si covert | PlayerActionsTest |
+| `ViolentRepression` — Répression violente abstraite | Manifestants présents, fonds disponibles | Allocation, défaut 1000; minimum 100 | Manifestants blessés, détentions agrégées, participation terminée, sév.20 | Santé/productivité réduites; radicalisation et défection militaire potentielles | PlayerActionsTest |
+| `DestroyLocality` — Destruction de Northbank fictif | Région 0..2 valide, population et fonds | Allocation, défaut 1000; minimum 100 | Région ciblée : actifs −50%, logement −60, santé −20, sév.35 | Production, besoins, colère et risques politiques affectés | PlayerActionsTest |
+| `IncreaseEducationBudget` — Financer l’éducation | Fonds disponibles | Allocation, défaut 10000 | Paiement services; productivités +0,01 | Effet productif; modèle agrégé non proportionnel au montant | PlayerActionsTest |
+| `BuildHospital` — Construire un hôpital | Stock construction≥1; devis exact et fonds | Prix courant d’une unité construction | Paiement et consommation d’une unité, santé productivité +0,1 | Offre future de traitements accrue | PlayerActionsTest |
+| `NoAction` — Ne pas agir (réponse événement) | Briefing actif via UI | 0 | Accusé de réception enregistré; aucune politique modifiée | La crise évolue après reprise manuelle | PlayerSessionTest, smoke SFML |
+
+
+## Visibilité et effets politiques directs
+
+Covert est proposé uniquement pour arrestation, assassinat et interdiction d’organisation. Les autres actions exigent Public. Le risque de révélation, les victimes et les réactions directes sont détaillés dans [decision-impact.md](decision-impact.md). Aucun choix ne donne un bonus arbitraire automatique de stabilité. Les effets de confiance de l’autorisation/négociation/libération représentent explicitement une réaction politique directe fictive.
+
+Le coût « opération » est une dépense administrative agrégée au compte services, sans représentation tactique. Victimes et détenus restent agrégés; les violences ne sont jamais décrites graphiquement. Le financement police/éducation et la construction hospitalière conservent les règles simplifiées V1. La baisse des dépenses publiques agit actuellement seulement sur les allocations. La reconstruction reste une aide générale, pas une gestion de chantiers individuels. Ces limites ne doivent pas être interprétées comme des mécanismes économiques calibrés.

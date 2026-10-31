@@ -1,0 +1,11 @@
+key,value
+fatigue,2
+rest,1.8
+crime_probability,0.002
+detection,0.4
+happiness_food,0.35
+happiness_housing,0.2
+happiness_health,0.25
+happiness_rest,0.2
+protest_probability,0.08
+rebellion_probability,0.02

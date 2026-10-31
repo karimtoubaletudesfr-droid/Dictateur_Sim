@@ -19,14 +19,16 @@ PopulationManager::PopulationManager(CitizenFactory& factory)
 
 void PopulationManager::generatePopulation(std::size_t size) {
 
-    population = factory.createPopulation(size);
-
-    citizenIndex.clear();
-    citizenIndex.reserve(population.size());
-
-    for (std::size_t i = 0; i < population.size(); ++i) {
-        citizenIndex.emplace(population[i].getId(), i);
+    auto generated = factory.createPopulation(size);
+    std::unordered_map<std::uint32_t, std::size_t> generatedIndex;
+    generatedIndex.reserve(generated.size());
+    for (std::size_t i = 0; i < generated.size(); ++i) {
+        generatedIndex.emplace(generated[i].getId(), i);
     }
+    // Build both containers before publishing: allocation failure preserves the old index.
+    population.swap(generated);
+    citizenIndex.swap(generatedIndex);
+
 }
 
 
@@ -84,3 +86,4 @@ bool PopulationManager::deleteCitizen(std::uint32_t id) {
     return true;
 }
 }
+namespace ds { Citizen* PopulationManager::findCitizen(std::uint32_t id) {auto it=citizenIndex.find(id);return it==citizenIndex.end()?nullptr:&population[it->second];} }

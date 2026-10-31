@@ -32,6 +32,7 @@ public:
 
     // Citizen lookup
     const Citizen* findCitizen(std::uint32_t id) const;
+    Citizen* findCitizen(std::uint32_t id);
 
     // Citizen deletion
     bool deleteCitizen(std::uint32_t id);

@@ -1,0 +1,5 @@
+{
+  "command": "./build/dictatorsim --population 10000 --days 3650 --seed 42 --ledger-log /dev/null",
+  "code": 0,
+  "seconds": 14.49
+}

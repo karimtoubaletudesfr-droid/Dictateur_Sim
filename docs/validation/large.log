@@ -1,0 +1,51 @@
+DICTATORSIM V1
+DAY: 365 YEAR: 2
+POPULATION: 10000
+
+ECONOMY
+Money supply: 10000000.00
+Treasury: 2295595.46
+Unemployment (%): 10.7352
+Production (units/day): 18977.1
+Price index: 0.806061
+Economic prosperity: 60.6474
+
+SOCIETY
+Happiness: 41.2677
+Anger: 68.3835
+Health: 32.4688
+Crime incidents: 1803
+Active protesters: 2524
+
+POLITICS
+Stability: 33.8526
+Military loyalty: 80.9809
+Regime status (0 governing, 1 transition, 2 collapsed, 3 crisis): 3
+
+EVENTS (last 20)
+Day 364: Theft succeeded; monetary transfer recorded (subject 9985)
+Day 365: Illness; medical treatment requested (subject 1812)
+Day 365: Illness; medical treatment requested (subject 2314)
+Day 365: Car breakdown; repair remains pending until paid (subject 3205)
+Day 365: Car breakdown; repair remains pending until paid (subject 3594)
+Day 365: Car breakdown; repair remains pending until paid (subject 4426)
+Day 365: Theft attempt failed (subject 42)
+Day 365: Theft attempt failed (subject 818)
+Day 365: Theft attempt failed (subject 1954)
+Day 365: Theft succeeded; monetary transfer recorded (subject 3579)
+Day 365: Theft attempt failed (subject 4173)
+Day 365: Theft attempt failed (subject 5079)
+Day 365: Theft succeeded; monetary transfer recorded (subject 5691)
+Day 365: Theft succeeded; monetary transfer recorded (subject 5901)
+Day 365: Theft attempt failed (subject 7665)
+Day 365: Theft attempt failed (subject 8489)
+Day 365: Theft succeeded; monetary transfer recorded (subject 8525)
+Day 365: Theft succeeded; monetary transfer recorded (subject 9627)
+Day 365: Theft succeeded; monetary transfer recorded (subject 9663)
+Day 365: Theft succeeded; monetary transfer recorded (subject 9963)
+
+ACCOUNTING
+Initial money: 10000000.00
+Current money: 10000000.00
+Difference: 0.00
+STATUS: CONSISTENT
