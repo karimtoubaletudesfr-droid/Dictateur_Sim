@@ -19,6 +19,7 @@ SOURCES = src/tools/IdGenerator.cpp \
           src/core/RandomEngine.cpp \
           src/population/Citizen.cpp \
           src/population/CitizenFactory.cpp \
+          src/population/PopulationManager.cpp \
           src/providers/CSVProfessionProvider.cpp
 # ==========================================
 # Executables
@@ -32,8 +33,9 @@ TEST_CITIZEN = $(BUILD_DIR)/test_citizen
 TEST_RANDOM = $(BUILD_DIR)/test_random_engine
 TEST_PROVIDER = $(BUILD_DIR)/test_csv_profession_provider
 TEST_FACTORY = $(BUILD_DIR)/test_citizen_factory
+TEST_POPULATION = $(BUILD_DIR)/test_population_manager
 
-.PHONY: all run test test-id test-citizen test-random test-provider test-factory clean rebuild
+.PHONY: all run test test-id test-citizen test-random test-provider test-factory test-population clean rebuild
 # ==========================================
 # Default target
 # ==========================================
@@ -74,6 +76,9 @@ $(TEST_PROVIDER): tests/CSVProfessionProviderTest.cpp $(SOURCES) | $(BUILD_DIR)
 # CitizenFactory tests
 $(TEST_FACTORY): tests/CitizenFactoryTest.cpp $(SOURCES) | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o $@
+#PopolationManger tests
+$(TEST_POPULATION): tests/PopulationManagerTest.cpp $(SOURCES) | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o $@
 
 # ==========================================
 # Execution
@@ -102,11 +107,14 @@ test-provider: $(TEST_PROVIDER)
 test-factory: $(TEST_FACTORY)
 	./$(TEST_FACTORY)
 
+test-population: $(TEST_POPULATION)
+	./$(TEST_POPULATION)
+
 # ==========================================
 # Run all tests
 # ==========================================
 
-test: $(TEST_ID) $(TEST_CITIZEN) $(TEST_RANDOM) $(TEST_PROVIDER) $(TEST_FACTORY)
+test: $(TEST_ID) $(TEST_CITIZEN) $(TEST_RANDOM) $(TEST_PROVIDER) $(TEST_FACTORY) $(TEST_POPULATION)
 	@echo "========== DictatorSim Tests =========="
 
 	./$(TEST_ID)
@@ -114,6 +122,7 @@ test: $(TEST_ID) $(TEST_CITIZEN) $(TEST_RANDOM) $(TEST_PROVIDER) $(TEST_FACTORY)
 	./$(TEST_RANDOM)
 	./$(TEST_PROVIDER)
 	./$(TEST_FACTORY)
+	./$(TEST_POPULATION)
 
 	@echo "========== All tests passed =========="
 
