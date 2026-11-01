@@ -68,3 +68,5 @@ const std::vector<PlayerNotification>& PlayerSession::notifications()const{retur
 const std::optional<DecisionRequest>& PlayerSession::request()const{return request_;}
 const PlayerDecisionController& PlayerSession::decisions()const{return decisions_;}
 }
+
+namespace ds { void PlayerSession::applySettings(const SimulationConfig& settings){simulation_.applySettings(settings);setSpeed(SimulationSpeed::Pause);} }

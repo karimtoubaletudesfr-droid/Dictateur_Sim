@@ -19,7 +19,7 @@ namespace ds {
         std::vector<ProfessionConfig> professions_;
         CitizenFactory factory_;
         public:
-        const SimulationConfig config;
+        SimulationConfig config;
         PopulationManager population;
         Ledger ledger;
         Treasury treasury;
@@ -40,6 +40,7 @@ namespace ds {
         World& operator=(const World&)=delete;
         void event(EventType type, std::uint32_t subject, const std::string& message);
         void verify() const;
+        void applySettings(const SimulationConfig& settings);
         const ProfessionConfig& professionConfig(Profession profession) const;
     };
 }

@@ -10,6 +10,7 @@ namespace ds {
         public:
         explicit Simulation(SimulationConfig config);
         void step();
+        void applySettings(const SimulationConfig& settings);
         void run(std::uint64_t days);
         const World& world() const;
         GovernmentReport report() const;

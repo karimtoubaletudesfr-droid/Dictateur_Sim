@@ -99,3 +99,67 @@ Les anciens contrats de fournisseurs sont conservés mais **désactivés en mode
 L’interface SFML utilise `PlayerSession`, `Simulation::step()` et les rapports existants. Elle soumet exclusivement des actions structurées au contrôleur joueur; aucun accès mutable à World ou Ledger. La boucle et les commandes restent sur le thread propriétaire.
 
 Les prochaines versions pourront introduire ménage/solidarité, recrutements et faillites, ressources intermédiaires obligatoires, démographie, régions détaillées, reprise de sauvegarde, rapports imparfaits et contrôleur IA. La reproductibilité est garantie dans le même environnement de compilation et de bibliothèque standard; les distributions standard ne garantissent pas une séquence identique entre toutes les implémentations C++.
+
+
+### Parametres interactifs et carte urbaine
+
+Dans SFML, **P** ou **MENU > PARAMETRES DU PAYS** ouvre les reglages et
+met le temps en pause. Les onglets proposent les salaires des huit metiers
+remuneres (y compris les soldats), les probabilites de base, les seuils de
+rebellion/putsch et les couts. Chaque ligne explique son effet et son unite.
+Cliquez une valeur, utilisez Ctrl+A pour la remplacer, puis Entree, ou les
+boutons -/+. **APPLIQUER A LA PARTIE** valide tout le formulaire sans changer
+les comptes ni le jour. Les salaires prennent effet a la prochaine paie,
+sous reserve des fonds disponibles. Les citoyens sans emploi, etudiants et
+retraites dependent des aides existantes, pas d'un salaire d'employeur.
+
+L'onglet **Population** accepte de 1 a 1 000 000 citoyens. **CREER UN PAYS**,
+puis la confirmation, reinitialise la partie avec les reglages affiches.
+Les grandes populations augmentent le temps de calcul. Les reglages restent
+en memoire pendant la session ; ils ne remplacent pas les fichiers CSV.
+Retour abandonne les modifications non appliquees.
+
+**CARTE / BUREAU** alterne entre le tableau de bord et une carte urbaine en
+vue du ciel. Le decor utilise une geometrie SFML statique sans texture externe.
+Les zones rouges indiquent les manifestations, rebellions, menaces de putsch
+et catastrophes des dix derniers jours. Les reperes sont
+schematiques ; les catastrophes respectent leur region simulee.
+
+Verification : `make sfml test`, puis `./build/dictatorsim-sfml --smoke 150`.
+Ce parcours capture aussi la carte et les onglets de parametrage. Utilisez 230 images pour inclure le nouveau bureau et les formules.
+
+
+### Le cabinet presidentiel
+
+L'accueil SFML est un bureau illustre : journal du jour, dossier interactif,
+television DS 24 (dernier evenement reel) et indicateurs de moral. Les onglets
+du bas donnent acces au Bureau, a la Carte, aux Dossiers de decisions et aux
+Formules. Le bureau ne modifie pas les regles de simulation.
+
+La carte affiche par defaut 400 petits visages. Les boutons NOMBRE DE VISAGES
+permettent de choisir 48, 100, 200, 300, 400, 600 ou 800 citoyens echantillonnes
+regulierement, sans depasser la population reelle. Le choix change seulement
+l'affichage, et reste actif en changeant de page. Taille et repartition
+s'adaptent automatiquement a la densite, en laissant la riviere libre. Les visages dessines dans SFML ne dependent pas d'une police
+emoji ; un petit atlas est genere une seule fois puis reutilise. Priorite visuelle : faim (repas < 35), fatigue (>= 65), colere (>= 60),
+content (bonheur >= 60), puis neutre. Un cercle rouge signale un manifestant.
+Survoler un visage affiche ses valeurs exactes ; les positions sont decoratives.
+
+La page Formules presente 18 fiches en six categories, avec equations,
+explications, conditions, unites et fichiers sources du moteur. Elle distingue
+les risques de base des probabilites conditionnelles et les regles d'affichage
+des equations de la simulation. Verification graphique : `--smoke 230` capture
+le bureau, les visages, les reglages et les six categories de formules.
+
+
+### Audio
+
+SFML 2.6.x (module audio inclus) lit directement `assets/sounds/background.mp3`
+en boucle et `assets/sounds/button-press.mp3` pour les boutons actifs. La musique
+est diffusee en streaming ; le son court est charge une seule fois en memoire.
+Ouvrez **P > Audio** ou **Menu > Parametres > Audio** : les deux jauges vont de
+0 a 100 %, par clic ou glissement. Reglages immediats, independants, conserves
+pendant la session (y compris une nouvelle partie). Valeurs initiales : musique
+30 %, boutons 60 %. Le silence est obtenu a 0 %. Les fichiers manquants sont
+signales sans bloquer le jeu. La CLI et les tests du moteur restent sans audio.
+Verification graphique et audio : `./build/dictatorsim-sfml --smoke 260`.

@@ -5,6 +5,12 @@
 namespace ds {
     World::World(SimulationConfig c):populationRandom_(c.seed),professions_(CSVProfessionProvider(c.configDirectory+"/professions.csv").loadWithEconomics(c.configDirectory+"/profession-economics.csv")),factory_(ids_,populationRandom_,professions_),config(c),population(factory_),treasury(0),economyRandom(c.seed^0x9e3779b9u),socialRandom(c.seed^0x85ebca6bu),militaryRandom(c.seed^0xc2b2ae35u),disasterRandom(c.seed^0x27d4eb2fu),politicalRandom(c.seed^0x165667b1u),government(c.taxRate,c.welfareRate,c.detection) {
         c.validate();
+        for(auto& profession:professions_){
+            auto i=static_cast<std::size_t>(profession.profession);
+            if(config.salaries[i]>=0)profession.referenceSalary=config.salaries[i];
+            else config.salaries[i]=profession.profession==Profession::Soldier?c.wage:profession.referenceSalary;
+        }
+        config.wage=std::max<Money>(1,config.salaries[static_cast<std::size_t>(Profession::Soldier)]);
         population.generatePopulation(c.population);
         Money citizens=c.population?fraction(c.moneySupply,c.citizenShare):0;
         Money firms=fraction(c.moneySupply,c.companyShare);

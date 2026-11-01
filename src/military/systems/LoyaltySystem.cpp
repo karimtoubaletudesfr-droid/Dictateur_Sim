@@ -14,9 +14,9 @@ namespace ds {
             w.military.spent=0;
             for(auto id:w.military.unit.citizens) {
                 auto& p=*w.population.findCitizen(id);
-                if(w.config.wage<=w.military.monthlyBudget-w.military.spent && w.treasury.pay(w.ledger,p.account,w.config.wage,TransactionType::Wage,w.clock.day())) {
-                    w.military.spent+=w.config.wage;
-                    p.earned=w.config.wage;
+                if(w.config.salaries[10]<=w.military.monthlyBudget-w.military.spent && w.treasury.pay(w.ledger,p.account,w.config.salaries[10],TransactionType::Wage,w.clock.day())) {
+                    w.military.spent+=w.config.salaries[10];
+                    p.earned=w.config.salaries[10];
                     ++w.military.paid;
                 }
                 else w.event(EventType::PaymentRefused,id,"Military salary unpaid: treasury or appropriation insufficient");

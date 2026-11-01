@@ -14,7 +14,7 @@ namespace ds {
             else { ++state.leadershipChanges; state.regime=RegimeStatus::Transition; }
             return;
         }
-        if(!state.pendingCoup && w.militaryRandom.probability(risk)) {
+        if(!state.pendingCoup && w.military.loyalty <= w.config.coupLoyaltyThreshold && w.militaryRandom.probability(risk)) {
             if(w.config.playerMode) {
                 state.pendingCoup=true;
                 w.event(EventType::MilitaryCoupStarted,0,"Coup threat: player response required before resolution");

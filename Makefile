@@ -88,10 +88,10 @@ build/test_population_manager: build/tests/PopulationManagerTest
 UI_SOURCES := $(wildcard src/ui/*.cpp)
 UI_OBJECTS := $(patsubst %.cpp,build/%.o,$(UI_SOURCES))
 SFML_CFLAGS = $(shell pkg-config --cflags sfml-graphics 2>/dev/null)
-SFML_LIBS = $(shell pkg-config --libs sfml-graphics sfml-window sfml-system 2>/dev/null)
+SFML_LIBS = $(shell pkg-config --libs sfml-graphics sfml-window sfml-system sfml-audio 2>/dev/null)
 .PHONY: sfml run-sfml check-sfml
 check-sfml:
-	@pkg-config --exists 'sfml-graphics >= 2.5' 'sfml-graphics < 3' || (echo "SFML 2.x required: sudo apt install libsfml-dev pkg-config fonts-dejavu-core"; exit 1)
+	@pkg-config --exists 'sfml-graphics >= 2.6' 'sfml-graphics < 3' 'sfml-audio >= 2.6' || (echo "SFML 2.6.x with audio/MP3 support required: sudo apt install libsfml-dev pkg-config fonts-dejavu-core"; exit 1)
 $(UI_OBJECTS) build/apps/sfml/main.o: CPPFLAGS += $(SFML_CFLAGS)
 $(UI_OBJECTS) build/apps/sfml/main.o: | check-sfml
 build/dictatorsim-sfml: $(UI_OBJECTS) build/apps/sfml/main.o $(OBJECTS)

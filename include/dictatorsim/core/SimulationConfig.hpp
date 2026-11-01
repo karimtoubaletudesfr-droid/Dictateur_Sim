@@ -7,6 +7,8 @@
 namespace ds {
     struct SimulationConfig {
         bool playerMode=false;
+        std::array<Money,11> salaries{{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}};
+        double rebellionParticipation=0, coupLoyaltyThreshold=100;
         std::size_t population=1000;
         std::uint32_t seed=42;
         std::uint64_t days=365;

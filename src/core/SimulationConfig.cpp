@@ -75,6 +75,8 @@ namespace ds {
         validate();
     }
     void SimulationConfig::validate() const {
+        for(Money salary:salaries)if(salary < -1 || salary>1000000000)throw std::invalid_argument("invalid salary");
+        for(double threshold:{rebellionParticipation,coupLoyaltyThreshold})if(!std::isfinite(threshold)||threshold<0||threshold>100)throw std::invalid_argument("invalid threshold");
         for(const auto& row:regionalRisks)for(double risk:row)if(!std::isfinite(risk)||risk<0||risk>1)throw std::invalid_argument("invalid regional risk");
         if(population>1000000 || days>1000000 || moneySupply<0 || citizenShare<0 || companyShare<0 || citizenShare>10000 || companyShare>10000 || citizenShare+companyShare>10000 || taxRate<0 || taxRate>10000 || welfareRate<0 || welfareRate>10000)throw std::invalid_argument("invalid simulation or allocation");
         for(double p:{crimeProbability,detection,breakdownProbability,sicknessProbability,disasterProbability,protestProbability,rebellionProbability,coupProbability,militaryShare,corruptionProbability})if(!std::isfinite(p)||p<0||p>1)throw std::invalid_argument("invalid probability");

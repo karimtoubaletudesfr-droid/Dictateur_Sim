@@ -3,8 +3,16 @@
 #include "StatisticsPanel.hpp"
 #include "DecisionPanel.hpp"
 #include "EventPanel.hpp"
+#include "UrbanMap.hpp"
+#include "OfficeScreen.hpp"
+#include "FormulaPanel.hpp"
 namespace ds {
 class DashboardScreen {
+    UrbanMap map_;
+    enum class Page { Office, Map, Orders, Formulas };
+    Page page_=Page::Office;
+    OfficeScreen office_;
+    FormulaPanel formulas_;
     StatisticsPanel statistics_;
     DecisionPanel decisions_;
     EventPanel events_;

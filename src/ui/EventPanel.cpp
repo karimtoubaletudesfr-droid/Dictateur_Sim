@@ -3,8 +3,9 @@
 namespace ds {
 void EventPanel::scroll(float delta){offset_=std::max(0,offset_+static_cast<int>(-delta*2));}
 void EventPanel::draw(sf::RenderTarget& t,UITheme& ui,const PlayerSession& session){
-    ui.panel(t,"event-panel",{870,96,390,560},ui.panelColor);ui.text(t,"event-title","COUNTRY DISPATCHES",888,112,17,ui.ink);
-    ui.text(t,"event-hint","Recent facts / scroll to review",888,139,12,ui.muted);
+    ui.roundPanel(t,{870,96,390,560},{17,29,34},12);
+    ui.panel(t,"news-band",{884,108,362,49},{34,78,86});ui.text(t,"event-title","DS 24 / FIL DES ACTUALITES",888,112,17,ui.ink);
+    ui.text(t,"event-hint","Dernieres nouvelles / molette pour remonter",888,139,12,ui.muted);
     const auto& events=session.simulation().world().logger.entries();
     offset_=std::min(offset_,std::max(0,static_cast<int>(events.size())-1));
     for(int row=0;row<6;++row){int index=static_cast<int>(events.size())-1-offset_-row;if(index<0)break;

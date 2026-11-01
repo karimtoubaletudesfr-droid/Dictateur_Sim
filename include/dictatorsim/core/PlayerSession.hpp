@@ -20,6 +20,7 @@ class PlayerSession {
 public:
     explicit PlayerSession(SimulationConfig config);
     void advance(double elapsedSeconds);
+    void applySettings(const SimulationConfig& settings);
     void setSpeed(SimulationSpeed speed);
     SimulationSpeed speed() const;
     double backlog() const;

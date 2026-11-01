@@ -12,6 +12,7 @@ namespace ds {
     Simulation::Simulation(SimulationConfig c):world_(c) {
         statistics_.update(world_);
     }
+    void Simulation::applySettings(const SimulationConfig& settings) { world_.applySettings(settings); }
     void Simulation::step() {
         world_.clock.advance();
         decisions_.update(world_,report());

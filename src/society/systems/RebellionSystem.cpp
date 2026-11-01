@@ -8,7 +8,7 @@ namespace ds {
         auto n=w.population.getPopulationSize();
         double participation=n?double(w.society.protesters)/n:0;
         double pressure=participation*(w.society.anger/100.)*(1-w.government.state.legitimacy/100.);
-        if(!w.society.rebellion && w.socialRandom.probability(w.config.rebellionProbability*pressure)) {
+        if(!w.society.rebellion && participation*100 >= w.config.rebellionParticipation && w.socialRandom.probability(w.config.rebellionProbability*pressure)) {
             w.society.rebellion=true;
             w.government.state.regime=RegimeStatus::Crisis;
             w.event(EventType::RebellionStarted,0,"Rebellion emerged from mobilization, anger and low legitimacy");

@@ -5,9 +5,9 @@ namespace ds {
 void DecisionPanel::scroll(float delta){if(history_)historyOffset_=std::max(0,historyOffset_+static_cast<int>(-delta));else offset_=std::clamp(offset_+static_cast<int>(-delta),0,static_cast<int>(PlayerDecisionController::catalog().size())-9);}
 bool DecisionPanel::confirming()const{return confirmation_.has_value();}
 void DecisionPanel::draw(sf::RenderTarget& t,UITheme& ui,PlayerSession& session,sf::Vector2f mouse,bool click){
-    ui.panel(t,"decision-panel",{280,96,570,560},ui.panelColor);
-    if(ui.button(t,"actions-tab","GOVERN",{298,110,140,38},mouse,click,!history_))history_=false;
-    if(ui.button(t,"history-tab","DECISION HISTORY",{450,110,182,38},mouse,click,history_))history_=true;
+    ui.roundPanel(t,{280,96,570,560},{28,49,47},10);
+    if(ui.button(t,"actions-tab","GOUVERNER",{298,110,140,38},mouse,click,!history_))history_=false;
+    if(ui.button(t,"history-tab","HISTORIQUE",{450,110,182,38},mouse,click,history_))history_=true;
     if(history_){
         const auto& records=session.decisions().history().records();
         historyOffset_=std::min(historyOffset_,std::max(0,static_cast<int>(records.size())-1));
